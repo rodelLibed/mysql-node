@@ -36,7 +36,7 @@ app.get("/students", (req, res) => {
 
 app.get("/get_student/:id", (req, res) => {
   const id = req.params.id;
-  const sql = "SELECT * FROM student_table WHERE `id`= ? ";
+  const sql = "SELECT * FROM student_table WHERE `id`=? ";
   db.query(sql, [id], (err, result) => {
     if (err) return res.json({ message: "Server Error" + err });
     return res.json(result);

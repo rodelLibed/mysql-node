@@ -1,9 +1,5 @@
 "use client"
 import { useEffect, useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 import axios from "axios"
 import { useParams } from "next/navigation"
 import { useRouter } from "next/navigation"
@@ -33,43 +29,83 @@ const Edit = () => {
   }
 
   return (
-    <Card className="w-full max-w-md mx-auto">
-    <CardHeader>
-      <CardTitle>User Information</CardTitle>
-      <CardDescription>Please fill out the form below</CardDescription>
-    </CardHeader>
-    <CardContent>
-    
+    <div className="w-full max-w-md mx-auto bg-white shadow-md rounded-lg overflow-hidden">
+    <div className="p-6">
+      <h2 className="text-2xl font-bold mb-2">User Information</h2>
+      <p className="text-gray-600 mb-6">Please fill out the form below</p>
       {data.map((student) => {
         return (
-            <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
-            <Input value={student.name} onChange={(e)=>setData([{...data[0], name: e.target.value}])} id="name" placeholder="Enter your name" required />
-            </div>
-            <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input value={student.email} onChange={(e)=>setData([{...data[0], email: e.target.value}])} id="email" type="email" placeholder="Enter your email" required />
-            </div>
-            <div className="space-y-2">
-            <Label htmlFor="age">Age</Label>
-            <Input value={student.age} onChange={(e)=>setData([{...data[0], age: e.target.value}])} id="age" type="number" placeholder="Enter your age" required min="0" max="120" />
-            </div>
-            <div className="space-y-2">
-            <Label htmlFor="age">Gender</Label>
-            <Input value={student.gender} onChange={(e)=>setData([{...data[0], gender: e.target.value}])} id="gender"  placeholder="Enter your age" required min="0" max="120" />
-            </div>
-    <div className="space-y-2">
-    <Button className="w-full">Submit</Button>
-    </div>
-  
-  </form>
+          <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="space-y-2">
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+            Name
+          </label>
+          <input
+           value={student.name}
+           onChange={(e)=>setData([{...data[0], name: e.target.value}])}
+            id="name"
+            placeholder="Enter your name"
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+          />
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+            Email
+          </label>
+          <input
+           value={student.email}
+           onChange={(e)=>setData([{...data[0], email: e.target.value}])}
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+          />
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="age" className="block text-sm font-medium text-gray-700">
+            Age
+          </label>
+          <input
+           value={student.age}
+           onChange={(e)=>setData([{...data[0], age: e.target.value}])}
+            id="age"
+            type="number"
+            placeholder="Enter your age"
+            required
+            min="0"
+            max="120"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+          />
+        </div>
+        <div className="space-y-2">
+          <label htmlFor="gender" className="block text-sm font-medium text-gray-700">
+            Gender
+          </label>
+          <input
+           value={student.gender}
+           onChange={(e)=>setData([{...data[0], gender: e.target.value}])}
+            id="gender"
+            placeholder="Enter your gender"
+            required
+            className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+          />
+        </div>
+        <div className="space-y-2">
+          <button
+            type="submit"
+            className="w-full bg-primary text-white font-bold py-2 px-4 rounded hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
         )
       })}
       
-    </CardContent>
-    
-  </Card>
+    </div>
+  </div>
   )
 }
 

@@ -1,9 +1,9 @@
 "use client"
 import { Eye, Pencil, Trash2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useRouter } from "next/navigation"
+
 
 export default function Home() {
   const router = useRouter()
@@ -43,7 +43,7 @@ export default function Home() {
   return (
     <div className="container mx-auto py-6">
       <div className="overflow-x-auto bg-white shadow-md rounded-lg">
-        <Button onClick={() => router.push("/Create")}>Add User</Button>
+        <button onClick={() => router.push("/Create")}>Add User</button>
         <table className="min-w-full table-auto">
           <thead className="bg-gray-50">
             <tr>
@@ -65,7 +65,7 @@ export default function Home() {
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{user.gender}</td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                   <div className="flex space-x-2">
-                    <Button
+                    <button
                       variant="outline"
                       size="icon"
                       onClick={() => handleRead(user.id)}
@@ -75,8 +75,8 @@ export default function Home() {
                       <Eye className="h-4 w-4" />
                       <span className="sr-only">Read</span>
                   
-                    </Button>
-                    <Button
+                    </button>
+                    <button
                       variant="outline"
                       size="icon"
                       onClick={() => handleEdit(user.id)}
@@ -84,8 +84,8 @@ export default function Home() {
                     >
                       <Pencil className="h-4 w-4" />
                       <span className="sr-only">Edit</span>
-                    </Button>
-                    <Button
+                    </button>
+                    <button
                       variant="outline"
                       size="icon"
                       onClick={() => handleDelete(user.id)}
@@ -93,7 +93,7 @@ export default function Home() {
                     >
                       <Trash2 className="h-4 w-4" />
                       <span className="sr-only">Delete</span>
-                    </Button>
+                    </button>
                   </div>
                 </td>
               </tr>
